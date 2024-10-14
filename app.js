@@ -10,18 +10,24 @@ const reactHeading = React.createElement("h1", {
 }, "Hello World from React")
 
 
-console.log(reactHeading);
+// JSX
+
+const jsxHeading = <h1>Hello from JSX</h1>
+
+console.log(jsxHeading);
+
+const HeadingComponent0 = () => { 
+    return <h1>Hello from react functional component 0</h1>
+}
+
+const HeadingComponent = () => { 
+    return <div>
+    <HeadingComponent0/>
+    <h1>Hello from react functional component</h1>
+    </div>
+}
 
 const reactRoot = ReactDOM.createRoot(document.getElementById("root"))
 
-reactRoot.render(reactHeading)
 
-
-const reactDiv = React.createElement("div", {
-    id: "parent"
-}, React.createElement("div", {
-    id: "child"
-}, [React.createElement("h1", {}, "Hello from h1 tag"),  React.createElement("h2", {}, "hello from h2 tag")]))
-
-
-reactRoot.render(reactDiv)
+reactRoot.render(<HeadingComponent/>)
